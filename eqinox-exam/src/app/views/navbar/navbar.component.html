@@ -1,0 +1,25 @@
+<nav>
+  <ul [ngClass]='"nav-bar"'>
+    <li>
+      <a routerLink='/stats'>Home</a>
+    </li>
+    <li *ngIf='isAuthenticated'>
+      <a routerLink='/animals/add'>Add Animal</a>
+    </li>
+    <li *ngIf='isAuthenticated'>
+      <a routerLink='/animals/all'>All Animals</a>
+    </li>
+    <li *ngIf='isAuthenticated'>
+      <a routerLink='/animals/mine'>Profile</a>
+    </li>
+    <li *ngIf='!isAuthenticated'>
+      <a routerLink='/user/login'>Login</a>
+    </li>
+    <li *ngIf='!isAuthenticated'>
+      <a routerLink='/user/register'>Register</a>
+    </li>
+    <li *ngIf='isAuthenticated'>
+      <a (click)='logout()' routerLink='/user/login'>Logout</a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,43 @@
+<form (ngSubmit)='onSubmit()' #userForm='ngForm' method='post'>
+  <div>
+    Email:
+    <input 
+      type="text"
+      name="email"
+      #email='ngModel'
+      [(ngModel)]='user.email'
+      required />
+    <span [hidden]='email.valid || email.pristine'>
+      Please fill email
+    </span>
+  </div>
+  <div>
+    Password:
+    <input
+      type="password"
+      name="password"
+      #password='ngModel'
+      [(ngModel)]='user.password'
+      required />
+    <span [hidden]='password.valid || password.pristine'>
+      Please fill email
+    </span>
+  </div>
+  <div>
+    Name:
+    <input
+      type="text"
+      name="name"
+      #name='ngModel'
+      [(ngModel)]='user.name'
+      required />
+    <span [hidden]='name.valid || name.pristine'>
+      Please fill email
+    </span>
+  </div>
+  <br />
+  <input 
+  type="submit" 
+  value="Register"
+  [disabled]='!userForm.form.valid' />
+</form>

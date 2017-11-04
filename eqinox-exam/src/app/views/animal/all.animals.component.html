@@ -1,0 +1,24 @@
+Search: <input type="text" #searchText (input)='filterAnimals(searchText.value)' />
+<ul [ngClass]='"list-animals"'>
+  <li *ngFor='let animal of animals | paginate: { itemsPerPage: 2, currentPage: currentPage }'>
+    Name: {{animal.name}}
+    <br />
+    Age: {{animal.age}}
+    <br />
+    Color: {{animal.color}}
+    <br />
+    Type: {{animal.type}}
+    <br />
+    Price: {{animal.price}}
+    <br />
+    <span *ngIf='animal.breed'>
+      Breed: {{animal.breed}}
+      <br />
+    </span>
+    <a [routerLink]="['/animals/details', animal.id]">
+      <img [src]='animal.image' alt="animal" />
+    </a>
+  </li>
+</ul>
+<pagination-controls 
+  (pageChange)='changePage($event)'></pagination-controls>

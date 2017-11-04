@@ -1,0 +1,88 @@
+<form (ngSubmit)='onSubmit()' #animalForm='ngForm' method='post'>
+  <div>
+    Name:
+    <input 
+      type="text"
+      name="name"
+      #name='ngModel'
+      [(ngModel)]='animal.name'
+      required />
+    <span [hidden]='name.valid || name.pristine'>
+      Please fill name
+    </span>
+  </div>
+  <div>
+    age:
+    <input
+      type="number"
+      name="age"
+      #age='ngModel'
+      [(ngModel)]='animal.age'
+      required />
+    <span [hidden]='age.valid || age.pristine'>
+      Please fill age
+    </span>
+  </div>
+  <div>
+    Color:
+    <input
+      type="text"
+      name="color"
+      #color='ngModel'
+      [(ngModel)]='animal.color'
+      required />
+    <span [hidden]='color.valid || color.pristine'>
+      Please fill color
+    </span>
+  </div>
+  <div>
+    Type:
+    <select 
+    name='type'
+    #type='ngModel'
+    [(ngModel)]='animal.type'
+    required>
+      <option *ngFor='let type of animalTypes' value="{{type}}">
+        {{type}}
+      </option>
+    </select>
+    <span [hidden]='type.valid || type.pristine'>
+      Please choose type
+    </span>
+  </div>
+  <div>
+    Price:
+    <input
+      type="number"
+      name="price"
+      #price='ngModel'
+      [(ngModel)]='animal.price'
+      required />
+    <span [hidden]='price.valid || price.pristine'>
+      Please fill price
+    </span>
+  </div>
+  <div>
+    Image:
+    <input
+      type="text"
+      name="image"
+      #image='ngModel'
+      [(ngModel)]='animal.image'
+      required />
+    <span [hidden]='image.valid || image.pristine'>
+      Please fill image
+    </span>
+  </div>
+  <div>
+    Breed:
+    <input
+      type="text"
+      name="breed"
+      [(ngModel)]='animal.breed'/>
+  </div>
+  <input 
+  type="submit" 
+  value="Add"
+  [disabled]='!animalForm.form.valid' />
+</form>

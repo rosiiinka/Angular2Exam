@@ -1,0 +1,38 @@
+<div>
+  Name: {{animal.name}}
+  <br />
+  Age: {{animal.age}}
+  <br />
+  Color: {{animal.color}}
+  <br />
+  Type: {{animal.type}}
+  <br />
+  Price: {{animal.price}}
+  <br />
+  <span *ngIf='animal.breed'>
+    Breed: {{animal.breed}}
+    <br />
+  </span>
+  <ul *ngIf='reactions'>
+    <li  *ngFor='let reaction of reactions'>
+      {{reaction.type}}: {{reaction.value}}
+    </li>
+  </ul>
+  <ul *ngIf='animal.comments'>
+    <li *ngFor='let comment of animal.comments'>
+      Comment: {{comment.message}} by {{comment.user}}
+    </li>
+  </ul>
+  <img [src]='animal.image' />
+  <br />
+  <select
+  #reaction>
+    <option *ngFor='let reaction of reactionTypes' value="{{reaction}}">
+      {{reaction}}
+    </option>
+  </select>
+  <button (click)='addReaction(reaction.value)'>Add Reaction</button>
+  <br />
+  <textarea #comment></textarea>
+  <button (click)='addComment(comment.value)'>Add Comment</button>
+</div>

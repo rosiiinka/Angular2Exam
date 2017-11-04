@@ -1,0 +1,9 @@
+.list-animals {
+  list-style-type: none;
+}
+
+
+
+.list-animals li img {
+  width: 300px;
+}

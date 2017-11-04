@@ -1,0 +1,21 @@
+<h1 style="text-align: center">My Profile </h1>
+<ul [ngClass]='"list-animals"'>
+  <li *ngFor='let animal of animals'>
+    Name: {{animal.name}}
+    <br />
+    Age: {{animal.age}}
+    <br />
+    Color: {{animal.color}}
+    <br />
+    Type: {{animal.type}}
+    <br />
+    Price: {{animal.price}}
+    <br />
+    <span *ngIf='animal.breed'>
+      Breed: {{animal.breed}}
+      <br />
+    </span>
+    <img [src]='animal.image' alt="animal" />
+    <button (click)='delete(animal.id)'>Delete</button>
+  </li>
+</ul>
